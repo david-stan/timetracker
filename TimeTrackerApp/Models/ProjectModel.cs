@@ -14,7 +14,7 @@ namespace TimeTrackerApp.Models
         public long ClientId { get; set; }
         public string ClientName { get; set; }
 
-        public static ProjectModel FromModel(Project project)
+        public static ProjectModel FromProject(Project project)
         {
             return new ProjectModel
             {
