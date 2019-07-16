@@ -35,6 +35,9 @@ namespace TimeTrackerApp
 
             services.AddJwtBearerAuthentication(Configuration);
 
+            services.AddOpenApi();
+            //ServiceCollectionExtensions.AddOpenApi(services);
+
             services.AddControllers()
                 .AddFluentValidation(
                     options => options
@@ -63,6 +66,10 @@ namespace TimeTrackerApp
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseOpenApi();
+
+            app.UseSwaggerUi3();
 
             app.UseEndpoints(endpoints =>
             {

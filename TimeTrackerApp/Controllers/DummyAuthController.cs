@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using NSwag.Annotations;
 
 namespace TimeTrackerApp.Controllers
 {
+    [OpenApiIgnore]
     public class DummyAuthController : Controller
     {
         private readonly IConfiguration _configuration;

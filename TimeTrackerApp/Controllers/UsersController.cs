@@ -11,6 +11,10 @@ using TimeTrackerApp.Models;
 
 namespace TimeTrackerApp.Controllers
 {
+    /// <summary>
+    /// Encapsulates functionality for adding, modifying, deleting
+    /// and reading users.
+    /// </summary>
     [ApiController]
     [Authorize]
     [Route("/api/users")]
@@ -25,6 +29,11 @@ namespace TimeTrackerApp.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Gets single user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<UserModel>> GetById(long id)
         {
@@ -40,6 +49,12 @@ namespace TimeTrackerApp.Controllers
             return UserModel.FromUser(user);
         }
 
+        /// <summary>
+        /// Gets a single page of users.
+        /// </summary>
+        /// <param name="page">Page to retrieve.</param>
+        /// <param name="size">Page size.</param>
+        /// <returns>Paged list of users.</returns>
         [HttpGet]
         public async Task<ActionResult<PagedList<UserModel>>> GetPage(
             int page = 1, int size = 5)
